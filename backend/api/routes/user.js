@@ -17,8 +17,8 @@ router.delete('/:userId', UserController.userDeleteOneById)
 
 router.patch('/:userId', UserController.userPatchOneById)
 
-router.patch('/:userId')
+router.patch('/addFollows/:userId', UserController.userAddFollow)
 
-router.patch('/:userId')
+router.patch('/removeFollows/:userId', UserController.userRemoveFollow)
 
 module.exports = router

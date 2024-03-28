@@ -94,9 +94,49 @@ exports.userPatchOneById  = (req,res,next)=>{
     })
 }
 
-exports.userRemoveFollow
+exports.userAddFollow = (req,res,next)=>{
+    User.findById(req.params.userId).exec().then(user=>{
+        let userFollows = user.follows
+        let index = userFollows.indexOf(req.body.newFollow)
+        
+        if(index==-1){
+            userFollows.push(req.body.newFollow)
+            user.follows = userFollows
+            user.save().then(
+                res.status(200).json({message:'updated user follows'})
+            ).catch(err=>{
+                return res.status(409).json({error:err})
+            })
+            //update user
+        }else{
+            return res.status(404).json({message:'user this user already in follows'})
+        }
+    }).catch(err => {
+        res.status(500).json({ error: err })
+    })
+}
 
-exports.userAddFollow
+exports.userRemoveFollow = (req, res, next) => {
+    User.findById(req.params.userId).exec().then(user => {
+        let userFollows = user.follows
+        let index = userFollows.indexOf(req.body.newFollow)
+        if (index == -1) {
+            return req.status(404).json({ message: 'this user already not in follows' })
+        } else {
+            userFollows.splice(index, 1)
+            user.follows = userFollows
+            user.save().then(
+                res.status(200).json({ message: 'updated user follows' })
+            ).catch(err => {
+                return res.status(409).json({ error: err })
+            })
+            
+            return req.status(404).json({ message: 'user this user already in follows' })
+        }
+    }).catch(err => {
+        res.status(500).json({ error: err })
+    })
+}
 
 
 
