@@ -4,9 +4,11 @@ const Wish = require('../models/wish')
 
 exports.wishesGetAll = (req,res,next)=>{
     Wish.find().exec().then(docs=>{
+        console.log('get all wishes')
         res.status(200).json({
             count:docs.length,
-            data:docs
+            data:docs,
+            // user:req.userData
         })
     }).catch(err=>{
         res.status(404).json({error:err})

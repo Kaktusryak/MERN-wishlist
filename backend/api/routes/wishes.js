@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const checkAuth = require('../middleware/check-auth')//checks token, now not included in process due to comfort
+
 const WishesController = require('../controllers/wishes')
 
 router.get('/', WishesController.wishesGetAll)
