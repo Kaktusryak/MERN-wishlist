@@ -9,6 +9,8 @@ router.get('/', WishesController.wishesGetAll)
 
 router.post('/',WishesController.wishesPostOne)
 
+
+
 router.get('/:userId', WishesController.wishesOfUserByUserId)
 
 router.delete('/:wishId', WishesController.wishesDeleteOneById)
