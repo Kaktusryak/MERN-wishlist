@@ -46,13 +46,13 @@ const MyPage = () => {
       <div className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
         <div className='flex'>
           <div>
-            <p>Your wishes link: http://localhost:5173/wishes/{localStorage.getItem('userId')}</p>
+            <p>Your wishes link:<br/> http://localhost:5173/wishes/{localStorage.getItem('userId')}</p>
             <p className=''>Share it with your friends</p>
           </div>
           
           
         </div>
-        <CopyLinkButton text={'hello'}/>
+        <CopyLinkButton text={`http://localhost:5173/wishes/${localStorage.getItem('userId')}`}/>
       </div>
       {isCreate && <CreateWish handleOnCreate={handleOnCreate} /> }
       <div className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
