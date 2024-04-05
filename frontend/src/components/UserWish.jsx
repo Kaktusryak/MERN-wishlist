@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+import { RiExternalLinkFill } from "react-icons/ri";
 
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -21,14 +24,15 @@ const UserWish = ({wish}) => {
             <div>
                 
                 
-                <button onClick={()=>{setMore(!isMore)}} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? 'Less':'More'}</button> 
+                <button onClick={()=>{setMore(!isMore)}} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             
         </div>
           {isMore && <div>
               <p>Description: {wish.description}</p>
-              <p>Link: {wish.link}</p>
+              {wish.link && <p>Link: {wish.link}</p>}
+              {wish.link &&<a onClick={(e) => { e.preventDefault(); window.open(wish.link, '_blank'); }}><RiExternalLinkFill /></a>}
           </div>}
         
         

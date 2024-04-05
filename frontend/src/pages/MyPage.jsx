@@ -40,9 +40,13 @@ const MyPage = () => {
     setCreate(false)
     navigate(0)
   }
+  const handleOnCreateClose = ()=>{
+    setCreate(false)
+    
+  }
 
   return (
-    <div className=' flex flex-col items-center  w-full h-[100vh] transition-all'>
+    <div className='relative flex flex-col items-center  w-[100%] h-[100vh] transition-all'>
       <div className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
         <div className='flex'>
           <div>
@@ -54,7 +58,7 @@ const MyPage = () => {
         </div>
         <CopyLinkButton text={`http://localhost:5173/wishes/${localStorage.getItem('userId')}`}/>
       </div>
-      {isCreate && <CreateWish handleOnCreate={handleOnCreate} /> }
+      {isCreate && <CreateWish handleOnCreate={handleOnCreate} handleOnCreateClose={handleOnCreateClose} /> }
       <div className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
         {!isCreate && <button onClick={handleAddWish} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500 flex items-center'><FaPlus /><GoGift/></button>}
         {isCreate && <button onClick={handleAddWish} className={` bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500`}>Hide form</button>}

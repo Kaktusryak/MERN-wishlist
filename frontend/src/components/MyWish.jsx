@@ -8,6 +8,7 @@ import { FaChevronUp } from "react-icons/fa";
 import { BsGearFill } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa6";
 import { BsGear } from "react-icons/bs";
+import { RiExternalLinkFill } from "react-icons/ri";
 
 
 const MyWish = ({wish}) => {
@@ -44,6 +45,11 @@ const MyWish = ({wish}) => {
           {isMore && <div>
               <p>Description: {wish.description}</p>
               <p>Link: {wish.link}</p>
+              
+              {wish.link &&<a onClick={(e) => { e.preventDefault(); window.open(wish.link, '_blank'); }}><RiExternalLinkFill /></a>}
+          
+
+
           </div>}
         
         
