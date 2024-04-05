@@ -21,4 +21,8 @@ router.patch('/addFollows/:userId', UserController.userAddFollow)
 
 router.patch('/removeFollows/:userId', UserController.userRemoveFollow)
 
+router.post('/find',UserController.userFindByName)
+
+router.get('/friends/:userId',UserController.userGetFriends)
+
 module.exports = router

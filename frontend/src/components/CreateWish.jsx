@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { MdOutlineClose } from "react-icons/md";
 //conponent for pop up window where you fill form for your wish
 const CreateWish = ({handleOnCreate}) => {
   const [title,setTitle] = useState('')
@@ -36,7 +37,7 @@ const CreateWish = ({handleOnCreate}) => {
   }
 
   return (
-    <div className='flex justify-center w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
+    <div className={`relative flex justify-center w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2 transition-all ${`fade-in`}`}>
       <form className='flex flex-col justify-center items-center my-4'>
         <div className='flex flex-col w-full items-center my-2'>
           <input id='title' value={title}  onChange={(e)=>{setTitle(e.target.value)}} placeholder='Title' type='text' className='rounded-md border-2 border-sky-500 w-[15rem] h-[3rem] px-2'></input>
@@ -53,6 +54,7 @@ const CreateWish = ({handleOnCreate}) => {
         <button onClick={handleCreate} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>Create</button>
         
       </form>
+      <button onClick={handleOnCreate} className='absolute right-5 top-5'><MdOutlineClose className='text-3xl text-red-500'/></button>
     </div>
   )
 }

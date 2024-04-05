@@ -117,25 +117,67 @@ exports.userAddFollow = (req,res,next)=>{
 }
 
 exports.userRemoveFollow = (req, res, next) => {
-    User.findById(req.params.userId).exec().then(user => {
-        let userFollows = user.follows
-        let index = userFollows.indexOf(req.body.newFollow)
-        if (index == -1) {
-            return req.status(404).json({ message: 'this user already not in follows' })
-        } else {
-            userFollows.splice(index, 1)
-            user.follows = userFollows
-            user.save().then(
-                res.status(200).json({ message: 'updated user follows' })
-            ).catch(err => {
-                return res.status(409).json({ error: err })
-            })
-            
-            return req.status(404).json({ message: 'user this user already in follows' })
-        }
+    User.findById(req.params.userId)
+        .exec()
+        .then(user => {
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+
+            let userFollows = user.follows;
+            let index = userFollows.indexOf(req.body.newFollow);
+
+            if (index === -1) {
+                return res.status(404).json({ message: 'This user is already not in follows' });
+            } else {
+                userFollows.splice(index, 1);
+                user.follows = userFollows;
+                user.save()
+                    .then(() => {
+                        return res.status(200).json({ message: 'Updated user follows' });
+                    })
+                    .catch(err => {
+                        return res.status(409).json({ error: err });
+                    });
+            }
+        })
+        .catch(err => {
+            return res.status(500).json({ error: err });
+        });
+};
+
+exports.userFindByName = (req,res,next)=>{
+    const regex = new RegExp(req.body.query,'i')
+    User.find({name:regex}).limit(20).exec().then(response=>{
+        res.status(200).json(response)
     }).catch(err => {
         res.status(500).json({ error: err })
     })
+}
+
+exports.userGetFriends = (req,res,next)=>{
+    User.findById(req.params.userId)
+    .populate('follows') // Populate the 'follows' field to get details of the users being followed
+    .then(user => {
+        if (!user) {
+            console.log('User not found');
+            return;
+        }
+
+        // Extract the users being followed from the user's document
+        const followedUsers = user.follows;
+
+        console.log('Followed Users:', followedUsers);
+
+        // Respond with the followed users
+        res.status(200).json({ followedUsers });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+
+        // Respond with an error message
+        res.status(500).json({ error: 'Internal server error' });
+    });
 }
 
 

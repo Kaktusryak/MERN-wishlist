@@ -3,6 +3,11 @@ import { useState } from 'react'
 import EditWish from '../components/EditWish'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
+import { BsGearFill } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa6";
+import { BsGear } from "react-icons/bs";
 
 
 const MyWish = ({wish}) => {
@@ -28,9 +33,10 @@ const MyWish = ({wish}) => {
         <div className='flex justify-between items-center'>
             <p>{wish.title}</p>
             <div>
-                <button onClick={handleDelete} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>Delete</button>
-                <button onClick={()=>{setEdit(!isEdit)}} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isEdit ? 'Hide':'Edit'}</button>
-                <button onClick={()=>{setMore(!isMore)}} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? 'Less':'More'}</button> 
+              
+                <button onClick={handleDelete} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'><FaTrash /></button>
+                <button onClick={()=>{setEdit(!isEdit)}} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isEdit ? <BsGear />:<BsGearFill />}</button>
+                <button onClick={()=>{setMore(!isMore)}} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             
