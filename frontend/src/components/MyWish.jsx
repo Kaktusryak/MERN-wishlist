@@ -14,6 +14,7 @@ import { RiExternalLinkFill } from "react-icons/ri";
 const MyWish = ({wish}) => {
     const [isMore,setMore] = useState(false)
     const [isEdit,setEdit] = useState(false)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
 
   const navigate = useNavigate()
 

@@ -9,6 +9,7 @@ const EditWish = ({title,description,link,_id}) => {
   const refItem = useRef()
 
   const navigate = useNavigate()
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
 
   useEffect(()=>{
     refItem.current.focus()

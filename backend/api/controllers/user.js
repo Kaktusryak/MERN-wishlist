@@ -51,7 +51,7 @@ exports.userLogIn = (req, res, next) => {//compares passwords in hash and if ok 
                         name: user.name
                     }, process.env.JWT_KEY,
                     {
-                        expiresIn: "1h"
+                        expiresIn: "12h"
                     })
                 return res.status(200).json({ message: 'auth succesful', token: token })
             }

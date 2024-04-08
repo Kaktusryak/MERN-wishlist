@@ -15,6 +15,8 @@ const CreateWish = ({ handleOnCreate , handleOnCreateClose}) => {
     refItem.current.focus()
   },[])
 
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
+
   const handleCreate = (e) => {
     e.preventDefault()
     if (title != '') {

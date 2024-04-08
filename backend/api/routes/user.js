@@ -13,13 +13,13 @@ router.post('/login', UserController.userLogIn)
 
 router.get('/:userId', UserController.userGetOneById)
 
-router.delete('/:userId', UserController.userDeleteOneById)
+router.delete('/:userId',checkAuth, UserController.userDeleteOneById)
 
-router.patch('/:userId', UserController.userPatchOneById)
+router.patch('/:userId',checkAuth, UserController.userPatchOneById)
 
-router.patch('/addFollows/:userId', UserController.userAddFollow)
+router.patch('/addFollows/:userId', checkAuth,UserController.userAddFollow)
 
-router.patch('/removeFollows/:userId', UserController.userRemoveFollow)
+router.patch('/removeFollows/:userId', checkAuth,UserController.userRemoveFollow)
 
 router.post('/find',UserController.userFindByName)
 

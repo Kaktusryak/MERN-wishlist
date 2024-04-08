@@ -7,15 +7,15 @@ const WishesController = require('../controllers/wishes')
 
 router.get('/', WishesController.wishesGetAll)
 
-router.post('/',WishesController.wishesPostOne)
+router.post('/',checkAuth,WishesController.wishesPostOne)
 
 
 
 router.get('/:userId', WishesController.wishesOfUserByUserId)
 
-router.delete('/:wishId', WishesController.wishesDeleteOneById)
+router.delete('/:wishId',checkAuth, WishesController.wishesDeleteOneById)
 
-router.patch('/:wishId', WishesController.wishesPatchOneById)
+router.patch('/:wishId',checkAuth, WishesController.wishesPatchOneById)
 
 router.get('/:wishId', WishesController.wishesGetOneById)
 

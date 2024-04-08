@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const UserCard = ({user,isFriends}) => {
   const navigate = useNavigate()
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
+
   const toFriends = ()=>{
     axios.patch('http://localhost:4040/user/addFollows/'+localStorage.getItem('userId'), {
       newFollow:user._id
@@ -34,7 +36,9 @@ const UserCard = ({user,isFriends}) => {
         </div>
         <div className='flex'>
           <Link to={`/wishes/${user._id}`}>Wishes</Link>
-          {isFriends==false?(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={toFriends}>To friends</button>):(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={removeFriends}>Remove</button>)}
+          {}
+          {localStorage.getItem('TOKEN') && isFriends==false &&(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={toFriends}>To friends</button>)}
+          {localStorage.getItem('TOKEN') && isFriends==true &&(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={removeFriends}>Remove</button>)}
           
         </div>
         
