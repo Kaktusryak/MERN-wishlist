@@ -34,11 +34,11 @@ const MyWish = ({wish}) => {
         {isEdit && <EditWish title={wish.title} description={wish.description} link={wish.link} _id={wish._id}/>}
         <div className='flex justify-between items-center'>
             <p>{wish.title}</p>
-            <div>
+            <div className='flex flex-col'>
               
-                <button onClick={handleDelete} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'><FaTrash /></button>
-                <button onClick={()=>{setEdit(!isEdit)}} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isEdit ? <BsGear />:<BsGearFill />}</button>
-                <button onClick={()=>{setMore(!isMore)}} className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
+                <button className='w-[3rem]' onClick={handleDelete} ><FaTrash /></button>
+                <button className='w-[3rem]' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
+                <button className='w-[3rem]' onClick={()=>{setMore(!isMore)}} >{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             

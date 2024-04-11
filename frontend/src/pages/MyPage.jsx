@@ -60,10 +60,10 @@ const MyPage = () => {
       </div>
       {isCreate && <CreateWish handleOnCreate={handleOnCreate} handleOnCreateClose={handleOnCreateClose} /> }
       <div className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
-        {!isCreate && <button onClick={handleAddWish} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500 flex items-center'><FaPlus /><GoGift/></button>}
-        {isCreate && <button onClick={handleAddWish} className={` bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500`}>Hide form</button>}
+        {!isCreate && <button onClick={handleAddWish} ><FaPlus /><GoGift/></button>}
+        {isCreate && <button onClick={handleAddWish} >Hide form</button>}
         <p className='text-2xl text-sky-500'>Your nickname: {localStorage.getItem('name')}</p>
-        <button onClick={handleUnlogClick} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>Unlog</button>
+        <button onClick={handleUnlogClick} >Unlog</button>
       </div>
       <div>
         <MyWishList wishes={wishes} />

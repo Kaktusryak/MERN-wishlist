@@ -48,16 +48,16 @@ const EditWish = ({title,description,link,_id}) => {
     <div className='flex justify-center w-[450px] p-2 border-2 border-sky-500 rounded-md	my-2'>
       <form className='flex flex-col justify-center items-center my-4'>
         <div className='flex flex-col w-full items-center my-2'>
-          <input ref={refItem} id='title' value={newTitle}  onChange={(e)=>{setTitle(e.target.value)}} placeholder='Title' type='text' className='rounded-md border-2 border-sky-500 w-[15rem] h-[3rem] px-2'/>
+          <input ref={refItem} id='title' value={newTitle}  onChange={(e)=>{setTitle(e.target.value)}} placeholder='Title' type='text' />
         </div>
         <div className='flex flex-col w-full items-center my-2'>
-          <textarea  id='desc' value={newDescription}  onChange={(e)=>{setDescription(e.target.value)}} placeholder='Description' type='text' className='rounded-md border-2 border-sky-500 w-[25rem] h-[10rem] px-2 resize-none'/>
+          <textarea  id='desc' value={newDescription}  onChange={(e)=>{setDescription(e.target.value)}} placeholder='Description' type='text' className='  bg-black bg-opacity-10 px-5 text-white rounded-md h-10 border border-white flex items-center justify-center transition-colors duration-300 hover:bg-opacity-100 hover:border-sky-500 resize-none w-[250px] h-[6rem]'/>
         </div> 
         <div className='flex flex-col w-full items-center my-2'>
-          <input id='link' value={newLink}  onChange={(e)=>{setLink(e.target.value)}} placeholder='Link' type='text' className='rounded-md border-2 border-sky-500 w-[25rem] h-[3rem] px-2'/>
+          <input id='link' value={newLink}  onChange={(e)=>{setLink(e.target.value)}} placeholder='Link' type='text' />
           
         </div>
-        <button onClick={handleEdit} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>Edit wish</button>
+        <button onClick={handleEdit} >Edit wish</button>
         
       </form>
     </div>

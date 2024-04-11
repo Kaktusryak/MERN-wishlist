@@ -35,10 +35,10 @@ const UserCard = ({user,isFriends}) => {
             
         </div>
         <div className='flex'>
-          <Link to={`/wishes/${user._id}`}>Wishes</Link>
+          <Link className='mr-[3px]' to={`/wishes/${user._id}`}>Wishes</Link>
           {}
-          {localStorage.getItem('TOKEN') && isFriends==false &&(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={toFriends}>To friends</button>)}
-          {localStorage.getItem('TOKEN') && isFriends==true &&(<button className='h-[2rem] w-[6rem] justify-center flex items-center text-center bg-sky-500 border-2 border-white rounded-md text-white p-[5px]  hover:border-sky-500 hover:bg-white hover:text-sky-500' onClick={removeFriends}>Remove</button>)}
+          {localStorage.getItem('TOKEN') && isFriends==false &&(<button className='w-[6rem]'  onClick={toFriends}>To friends</button>)}
+          {localStorage.getItem('TOKEN') && isFriends==true &&(<button className='w-[6rem]' onClick={removeFriends}>Remove</button>)}
           
         </div>
         

@@ -24,7 +24,7 @@ const UserWish = ({wish}) => {
             <div>
                 
                 
-                <button onClick={()=>{setMore(!isMore)}} className='bg-sky-500 border-2 border-white rounded-md text-white py-2 px-4 my-2 hover:border-sky-500 hover:bg-white hover:text-sky-500'>{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
+                <button onClick={()=>{setMore(!isMore)}} >{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             
