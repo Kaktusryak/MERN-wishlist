@@ -4,6 +4,7 @@ import { GoGift } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 
 
+
 const Navbar = () => {
   const nav=useNavigate()
   nav(0)
@@ -16,17 +17,17 @@ const Navbar = () => {
   
 
   return (
-    <div key={token} className='flex items-center justify-between w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2'>
+    <div key={token} className='flex items-center justify-between w-[100%] py-1  border-b-2 border-slate-400 	my-2 mb-6'>
       
-      <GoGift className='text-sky-500 text-xl' />
+      <GoGift className=' text-xl w-[50px]' />
       <div className='flex'>
         <Link to='/' className='mx-2'>Home</Link>
         <Link to='/findUser' className='mx-2'>Find friends</Link>
         
         {token && <Link to='/friends' className='mx-2'>Friends</Link>}
       </div>
-      <div>
-        {token ? (<Link to='/myPage'><FaRegUser /></Link>):(<Link to='/login'>Log In</Link>)}
+      <div >
+        {token ? (<Link className='w-[50px]' to='/myPage'><FaRegUser /></Link>):(<Link className='w-[50px]' to='/login'><FaRegUser /></Link>)}
         
       </div>
       

@@ -43,25 +43,25 @@ const CreateWish = ({ handleOnCreate , handleOnCreateClose}) => {
   }
 
   return (
-    <div onClick={handleOnCreateClose} className='absolute bg-black bg-opacity-75 w-[100%] h-[100%] flex justify-center items-center'>
-      <div onClick={(e)=>{e.stopPropagation()}} className={`absolute bg-black bg-opacity-10 flex justify-center w-[600px] p-2 border-2 border-sky-500 rounded-md	my-2 transition-all ${`fade-in`}`}>
+    <div onClick={handleOnCreateClose} className=' w-[100%] h-[100%] flex justify-center items-center'>
+      <div onClick={(e)=>{e.stopPropagation()}} className={` relative flex justify-center w-[600px] p-2 	my-2 transition-all ${`fade-in`}`}>
         <form className='flex flex-col justify-center items-center my-4'>
           <div className='flex flex-col w-full items-center my-2'>
             <input ref={refItem} id='title' value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder='Title' type='text' ></input>
             <label htmlFor='title'>Enter here an overall name of your wish</label>
           </div>
           <div className='flex flex-col w-full items-center my-2'>
-            <textarea id='desc' value={description} onChange={(e) => { setDescription(e.target.value) }} placeholder='Description' type='text' className='  bg-black bg-opacity-10 px-5 text-white rounded-md h-10 border border-white flex items-center justify-center transition-colors duration-300 hover:bg-opacity-100 hover:border-sky-500 resize-none w-[250px] h-[6rem] '></textarea>
+            <textarea id='desc' value={description} onChange={(e) => { setDescription(e.target.value) }} placeholder='Description' type='text' className='  bg-black bg-opacity-10 px-5 py-2 text-slate-600 rounded-md h-10 border border-white flex items-center justify-center transition-colors duration-300 hover:border-slate-600 resize-none w-[250px] h-[6rem]'></textarea>
             <label htmlFor='desc'>Enter here a description for your wish {'('}it can be some specific information{')'}</label>
           </div>
           <div className='flex flex-col w-full items-center my-2'>
             <input id='link' value={link} onChange={(e) => { setLink(e.target.value) }} placeholder='Link' type='text'></input>
             <label htmlFor='link'>Paste here a link to your wish if it exists</label>
           </div>
-          <button onClick={handleCreate} >Create</button>
+          <button onClick={handleCreate} className='mt-2' >Create</button>
 
         </form>
-        <button onClick={handleOnCreateClose} className='absolute right-5 top-5 border-none hover:border-none hover:background-none'><MdOutlineClose className='text-3xl text-red-500' /></button>
+        <button onClick={handleOnCreateClose} className='absolute right-5 top-5 border-none bg-inherit w-fit  hover:border-none hover:bg-inherit'><MdOutlineClose className='text-3xl text-red-500' /></button>
       </div>
     </div>
 

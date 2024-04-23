@@ -3,7 +3,7 @@ import MyWish from './MyWish'
 
 const MyWishList = ({wishes}) => {
   return (
-    <ul>
+    <ul className='divide-y divide-slate-400'>
         {wishes.map((item)=>(
             <MyWish key={item._id} wish={item}/>
         ))}

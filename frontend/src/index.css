@@ -7,18 +7,27 @@
     box-sizing: border-box;
     
 }
+html{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  
+}
 body{
     min-height: 100vh;
     min-width: 600px;
+    width: 900px;
+    background-color: rgb(255, 255, 255);
+    height:fit-content;
 }
 body {
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default body padding */
-  background-image: url('/src/assets/3415537.jpg');
+
   background-size: cover; /* Ensures the SVG covers the entire background */
   background-position: center; /* Centers the SVG background */
   background-repeat: no-repeat; /* Prevents the SVG background from repeating */
-  color: ghostwhite;
+  color: black;
   background-attachment: fixed;
 }
 html{
@@ -26,13 +35,13 @@ html{
 }
 a{
     /* background-color: rgb(0, 0, 0); */
+    width: 150px;
+
+    background-color: rgb(231, 231, 231);
     
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    color: ghostwhite;
-    border-radius: 5px;
-    height: 2rem;
-    border:1px solid ghostwhite; 
+    color: black;
+    border-radius: 3px;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,20 +51,21 @@ a{
     
 
 a:hover{
-    background-color: rgba(0, 0, 0, 0.3);
-    border:1px solid rgb(14 165 233); ; 
-    color: white;
+    background-color: rgb(216, 216, 216);
+    
+    color: black;
     
 }
 button{
   /* background-color: rgb(0, 0, 0); */
-  
+  width: 150px;
+  height:max-content;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px;
-  color: ghostwhite;
-  border-radius: 5px;
+  color: black;
+  border-radius: 3px;
   height: 2rem;
-  border:1px solid ghostwhite; 
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,9 +75,9 @@ button{
   
 
 button:hover{
-  background-color: rgba(0, 0, 0, 0.3);
-  border:1px solid rgb(14 165 233); ; 
-  color: white;
+  background-color: rgb(216, 216, 216);
+    
+    color: black;
   
 }
 input{
@@ -75,23 +85,31 @@ input{
   
   background-color: rgba(0, 0, 0, 0.1);
   padding: 5px;
-  color: ghostwhite;
+  color: rgb(104, 104, 104);
   border-radius: 5px;
   height: 2rem;
-  border:1px solid ghostwhite; 
+
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+textarea{
+  color: rgb(104, 104, 104);
+}
   
   
 
 input:hover{
-  background-color: rgba(0, 0, 0, 0.3);
-  border:1px solid rgb(14 165 233); ; 
-  color: white;
-  
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+  color: black;
+}
+
+input:active{
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+  color: black;
 }
 @keyframes fadeIn {
     0% {
@@ -105,3 +123,11 @@ input:hover{
   .fade-in {
     animation: fadeIn 0.5s ease-in-out;
   }
+
+
+.inactive{
+  color:rgb(172, 172, 172);
+}
+.buttons  button{
+  width: 50px;
+}

@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 import { Route,Routes } from 'react-router-dom'
 import FindUser from '../src/pages/FindUser'
@@ -17,6 +19,32 @@ import Navbar from '../src/components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
+
+  const navigate = useNavigate()
+
+  const unlog = ()=>{
+    localStorage.setItem('TOKEN','')
+    localStorage.setItem('email','')
+    localStorage.setItem('userId','')
+    localStorage.setItem('name','')
+    
+
+  }
+
+  // useEffect(()=>{
+  //   axios.get('http://localhost:4040/user/isActual').then(res=>{
+
+  //   }
+
+  //   ).catch(
+  //     unlog()
+  //   )
+  // },[])
+
+
+  
 
   return (
     <div className='w-full flex flex-col items-center'>

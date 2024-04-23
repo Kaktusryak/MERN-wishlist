@@ -30,24 +30,25 @@ const MyWish = ({wish}) => {
     }
 
   return (
-    <li className='flex flex-col justify-between py-2 my-2 border-2 border-sky-500 rounded-md w-[500px] px-4'>
+    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4'>
         {isEdit && <EditWish title={wish.title} description={wish.description} link={wish.link} _id={wish._id}/>}
         <div className='flex justify-between items-center'>
-            <p>{wish.title}</p>
+            <p className='truncate w-[50%]'>{wish.title}</p>
             <div className='flex flex-col'>
-              
+              <button className='w-[3rem]' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
                 <button className='w-[3rem]' onClick={handleDelete} ><FaTrash /></button>
-                <button className='w-[3rem]' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
+                
                 <button className='w-[3rem]' onClick={()=>{setMore(!isMore)}} >{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             
         </div>
           {isMore && <div>
-              <p>Description: {wish.description}</p>
-              <p>Link: {wish.link}</p>
+              <p className='text-wrap'>Title: {wish.title}</p>
+              <p className='text-wrap'>Description: {wish.description}</p>
+              <p className='text-wrap'>Link: {wish.link}</p>
               
-              {wish.link &&<a onClick={(e) => { e.preventDefault(); window.open(wish.link, '_blank'); }}><RiExternalLinkFill /></a>}
+              {wish.link &&<a className='w-[100%] h-[2rem]' onClick={(e) => { e.preventDefault(); window.open(wish.link, '_blank'); }}><RiExternalLinkFill /></a>}
           
 
 

@@ -18,8 +18,8 @@ const FindUser = () => {
 
     try {
       axios.get('http://localhost:4040/user/friends/' + localStorage.getItem('userId')).then(response => {
-        console.log(response.data.followedUsers.map(item=>(item._id)))
-        setFriends(response.data.followedUsers.map(item=>(item._id)))
+        console.log(response.data.data)
+        setFriends(response.data.data.map(item=>(item._id)))
 
       }).catch(error => {
         console.log(error)

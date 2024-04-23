@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-const LogIn = () => {
+import {connect} from 'react-redux'
+
+
+
+const LogIn = ({login}) => {
   const navigate = useNavigate()
   const [email,setEmail] =useState('')
   const [password,setPassword] =useState('')
@@ -22,6 +26,9 @@ const LogIn = () => {
       localStorage.setItem('userId', decodedToken.userId)
       localStorage.setItem('name', decodedToken.name)
       localStorage.setItem('email',decodedToken.email)
+
+      
+
       console.log(decodedToken)
       navigate('/')
     }).catch(error=>{

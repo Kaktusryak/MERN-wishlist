@@ -3,6 +3,8 @@ const router = express.Router()
 
 const checkAuth = require('../middleware/check-auth')//checks token
 
+const checkToken = require('../middleware/check-token')
+
 const UserController = require('../controllers/user')
 
 router.get('/',UserController.userGetAll )
@@ -24,5 +26,7 @@ router.patch('/removeFollows/:userId', checkAuth,UserController.userRemoveFollow
 router.post('/find',UserController.userFindByName)
 
 router.get('/friends/:userId',UserController.userGetFriends)
+
+// router.get('/isActual',checkToken)
 
 module.exports = router

@@ -2,9 +2,10 @@ import React from 'react'
 import UserCard from './UserCard'
 
 const UserList = ({ users, friends }) => {
-  
+  console.log(users)
+  console.log( friends)
   return (
-    <ul>
+    <ul className='divide-y divide-slate-400'>
       {users.map((item) => {
         let isFriends = false
         

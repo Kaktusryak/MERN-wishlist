@@ -170,7 +170,10 @@ exports.userGetFriends = (req,res,next)=>{
         console.log('Followed Users:', followedUsers);
 
         // Respond with the followed users
-        res.status(200).json({ followedUsers });
+        res.status(200).json({ 
+            number:followedUsers.length,
+            data:followedUsers 
+        });
     })
     .catch(error => {
         console.error('Error:', error);
@@ -179,6 +182,8 @@ exports.userGetFriends = (req,res,next)=>{
         res.status(500).json({ error: 'Internal server error' });
     });
 }
+
+
 
 
 

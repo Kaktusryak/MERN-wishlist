@@ -45,19 +45,23 @@ const EditWish = ({title,description,link,_id}) => {
 
   return (
     
-    <div className='flex justify-center w-[450px] p-2 border-2 border-sky-500 rounded-md	my-2'>
+    <div className='flex justify-center w-[450px] p-2 fade-in 	my-2'>
       <form className='flex flex-col justify-center items-center my-4'>
         <div className='flex flex-col w-full items-center my-2'>
+          <label>Title:</label>
           <input ref={refItem} id='title' value={newTitle}  onChange={(e)=>{setTitle(e.target.value)}} placeholder='Title' type='text' />
+          
         </div>
         <div className='flex flex-col w-full items-center my-2'>
-          <textarea  id='desc' value={newDescription}  onChange={(e)=>{setDescription(e.target.value)}} placeholder='Description' type='text' className='  bg-black bg-opacity-10 px-5 text-white rounded-md h-10 border border-white flex items-center justify-center transition-colors duration-300 hover:bg-opacity-100 hover:border-sky-500 resize-none w-[250px] h-[6rem]'/>
+          <label>Description:</label>
+          <textarea  id='desc' value={newDescription}  onChange={(e)=>{setDescription(e.target.value)}} placeholder='Description' type='text' className='py-2  bg-black bg-opacity-10 px-5 text-slate-600 rounded-md h-10 border border-white flex items-center justify-center transition-colors duration-300 hover:border-slate-600 resize-none w-[250px] h-[6rem]'/>
         </div> 
         <div className='flex flex-col w-full items-center my-2'>
+          <label>Link:</label>
           <input id='link' value={newLink}  onChange={(e)=>{setLink(e.target.value)}} placeholder='Link' type='text' />
           
         </div>
-        <button onClick={handleEdit} >Edit wish</button>
+        <button className="mt-2"onClick={handleEdit} >Apply</button>
         
       </form>
     </div>
