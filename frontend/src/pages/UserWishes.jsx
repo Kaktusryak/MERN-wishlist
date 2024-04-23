@@ -56,9 +56,9 @@ const UserWishes = () => {
   return (
     <div>
       <p > {user.name} wishes:</p>
-      <div className='flex justify-between w-[600px] p-2 buttons'> 
+      <div className='flex justify-between w-[600px] items-center p-2 buttons'> 
         {currentPage==1?(<button className='inactive'><GrPrevious/></button>):<button onClick={prevPage}><GrPrevious/></button>}
-        
+        <p>Page {currentPage}</p>
         {currentPage < Math.ceil(allWishes.length / perPage)?(<button onClick={nextPage}  ><GrNext/></button>):<button  className='inactive'  ><GrNext/></button>}
         
         
@@ -66,13 +66,13 @@ const UserWishes = () => {
       <div className='flex justify-center'>
         <UserWishList wishes={wishes}/>
       </div>
-      <div className='flex justify-between w-[600px] p-2 buttons'> 
+      {wishes.length>5&&<div className='flex justify-between w-[600px] items-center p-2 buttons'> 
         {currentPage==1?(<button className='inactive'><GrPrevious/></button>):<button onClick={prevPage}><GrPrevious/></button>}
-        
+        <p>Page {currentPage}</p>
         {currentPage < Math.ceil(allWishes.length / perPage)?(<button onClick={nextPage}  ><GrNext/></button>):<button  className='inactive'  ><GrNext/></button>}
         
         
-      </div>
+      </div>}
       
     
     </div>

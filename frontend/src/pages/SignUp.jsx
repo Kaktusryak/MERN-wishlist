@@ -49,12 +49,12 @@ const SignUp = () => {
           <label htmlFor='pass'>Enter your password</label>
         </div>
         
-        <button onClick={handleSignUpClick} >Sign-Up</button>
+        <button onClick={handleSignUpClick} className='text-amber-600'>Sign-Up</button>
 
       </form>
       <div className='flex flex-col justify-center items-center my-4'>
         <p>Already have an account?</p>
-        <button onClick={handleLogInClick} >Log-In</button>
+        <button onClick={handleLogInClick} className='text-sky-600'>Log-In</button>
       </div>
 
     </div>

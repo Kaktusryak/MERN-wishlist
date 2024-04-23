@@ -45,7 +45,7 @@ const EditWish = ({title,description,link,_id}) => {
 
   return (
     
-    <div className='flex justify-center w-[450px] p-2 fade-in 	my-2'>
+    <div className='flex justify-center w-[450px] p-2 fade-in-up 	my-2 '>
       <form className='flex flex-col justify-center items-center my-4'>
         <div className='flex flex-col w-full items-center my-2'>
           <label>Title:</label>

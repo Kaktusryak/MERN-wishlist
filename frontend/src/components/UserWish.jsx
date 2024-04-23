@@ -17,9 +17,9 @@ const UserWish = ({wish}) => {
     
 
   return (
-    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4'>
+    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4 overflow-hidden'>
         
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center z-10 bg-white'>
             <p className='truncate w-[50%]'>{wish.title}</p>
             <div>
                 
@@ -29,12 +29,12 @@ const UserWish = ({wish}) => {
             
             
         </div>
-          {isMore && <div>
+        {isMore && <div className='in-down z-0'>
               <p className='text-wrap'>Title: {wish.title}</p>
               <p className='text-wrap'>Description: {wish.description}</p>
               {wish.link && <p className='text-wrap'>Link: {wish.link}</p>}
               {wish.link &&<a className='w-[100%] h-[2rem]' onClick={(e) => { e.preventDefault(); window.open(wish.link, '_blank'); }}><RiExternalLinkFill /></a>}
-          </div>}
+        </div>}
         
         
     </li>

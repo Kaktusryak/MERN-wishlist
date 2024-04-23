@@ -16,8 +16,9 @@ const MyPage = () => {
   const [wishes,setWishes] = useState([])
   const [allWishes, setAllWishes] = useState([])
   const [currentPage,setCurrentPage] = useState(1)
+  
   const perPage = 10;
-  let totalPages
+ 
   
 
   useEffect(()=>{
@@ -26,11 +27,7 @@ const MyPage = () => {
       
       setWishes(response.data.data.slice(0,perPage))
       setAllWishes(response.data.data)
-      if(response.data.data%perPage==0){
-        totalPages = response.data.data/perPage
-      }else{
-        totalPages = response.data.data/perPage+1
-      }
+     
       
     }).catch(error=>{
       console.log(error)
@@ -79,6 +76,7 @@ const MyPage = () => {
     
   }
 
+
   return (
     <div className=' flex flex-col items-center  w-[100%] h-[100vh] transition-all'>
       <div className='flex items-center justify-between w-[600px] p-2 border-b-2 border-slate-400	my-2'>
@@ -94,28 +92,28 @@ const MyPage = () => {
       </div>
       {isCreate && <CreateWish handleOnCreate={handleOnCreate} handleOnCreateClose={handleOnCreateClose} /> }
       <div className='flex items-center justify-between w-[600px] p-2 border-b-2 border-slate-400	my-2'>
-        {!isCreate && <button onClick={handleAddWish} ><FaPlus /><GoGift/></button>}
-        {isCreate && <button onClick={handleAddWish} >Hide form</button>}
-        <p className='text-2xl '>Your nickname: {localStorage.getItem('name')}</p>
-        <button onClick={handleUnlogClick} >Unlog</button>
+        {!isCreate && <button onClick={handleAddWish} className='w-[70px]'><FaPlus /> <span className='w-[5px]'></span> <GoGift/></button>}
+        {isCreate && <button onClick={handleAddWish} className='w-[70px]' >Hide</button>}
+        <p className='text-2xl '>Your nickname: <span className=''>{localStorage.getItem('name')}</span></p>
+        <button onClick={handleUnlogClick} className='w-[70px] text-rose-500 font-semibold'>Unlog</button>
       </div>
-      <div className='flex justify-between w-[600px] p-2 buttons'> 
+      <div className='flex justify-between w-[600px] items-center p-2 buttons'> 
         {currentPage==1?(<button className='inactive'><GrPrevious/></button>):<button onClick={prevPage}><GrPrevious/></button>}
-        
+        <p>Page {currentPage}</p>
         {currentPage < Math.ceil(allWishes.length / perPage)?(<button  onClick={nextPage}  ><GrNext/></button>):<button  className='inactive'  ><GrNext/></button>}
         
         
       </div>
-      <div >
+      <div className='w-fit'>
         <MyWishList wishes={wishes} />
       </div>
-      <div className='flex justify-between w-[600px] p-2 buttons'> 
+      {wishes.length>5 && <div className='flex justify-between w-[600px] items-center p-2 buttons'> 
         {currentPage==1?(<button className='inactive'><GrPrevious/></button>):<button onClick={prevPage}><GrPrevious/></button>}
+        <p>Page {currentPage}</p>
+        {currentPage < Math.ceil(allWishes.length / perPage) ?(<button onClick={nextPage}  ><GrNext/></button>):<button  className='inactive'  ><GrNext/></button>}
         
-        {currentPage < Math.ceil(allWishes.length / perPage)?(<button onClick={nextPage}  ><GrNext/></button>):<button  className='inactive'  ><GrNext/></button>}
         
-        
-      </div>
+      </div>}
       
     </div>
   )

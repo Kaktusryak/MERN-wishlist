@@ -19,6 +19,7 @@ body{
     width: 900px;
     background-color: rgb(255, 255, 255);
     height:fit-content;
+    overflow-x: hidden;
 }
 body {
   margin: 0; /* Remove default body margin */
@@ -131,3 +132,32 @@ input:active{
 .buttons  button{
   width: 50px;
 }
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes inDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.in-down {
+  animation: inDown 0.5s ease-in-out;
+}
+

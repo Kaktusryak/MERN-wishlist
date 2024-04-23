@@ -44,7 +44,7 @@ const CreateWish = ({ handleOnCreate , handleOnCreateClose}) => {
 
   return (
     <div onClick={handleOnCreateClose} className=' w-[100%] h-[100%] flex justify-center items-center'>
-      <div onClick={(e)=>{e.stopPropagation()}} className={` relative flex justify-center w-[600px] p-2 	my-2 transition-all ${`fade-in`}`}>
+      <div onClick={(e)=>{e.stopPropagation()}} className={` relative flex justify-center w-[600px] p-2 	my-2 transition-all fade-in-up`}>
         <form className='flex flex-col justify-center items-center my-4'>
           <div className='flex flex-col w-full items-center my-2'>
             <input ref={refItem} id='title' value={title} onChange={(e) => { setTitle(e.target.value) }} placeholder='Title' type='text' ></input>

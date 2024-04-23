@@ -56,12 +56,12 @@ const LogIn = ({login}) => {
           <input className='w-[20rem] h-[3rem]' id='pass' value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder='password' type='text' ></input>
           <label htmlFor='pass'>Enter your password</label>
         </div>
-        <button onClick={handleLogInClick} >Log-In</button>
+        <button onClick={handleLogInClick} className='text-sky-600' >Log-In</button>
         
       </form>
       <div className='flex flex-col justify-center items-center my-4'>
         <p>Don't have an account?</p>
-        <button onClick={handleSignUpClick} >Sign-Up</button>
+        <button onClick={handleSignUpClick} className='text-amber-600'>Sign-Up</button>
       </div>
       
     </div>

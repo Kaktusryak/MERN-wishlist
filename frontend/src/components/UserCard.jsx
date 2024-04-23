@@ -35,7 +35,7 @@ const UserCard = ({user,isFriends}) => {
             
         </div>
         <div className='flex'>
-          <Link className='mr-[3px] h-[2rem]' to={`/wishes/${user._id}`}>Wishes</Link>
+          <Link className='mr-[3px] w-[6rem] h-[2rem]' to={`/wishes/${user._id}`}>Wishes</Link>
           {}
           {localStorage.getItem('TOKEN') && isFriends==false &&(<button className='w-[6rem] h-[2rem]'  onClick={toFriends}>To friends</button>)}
           {localStorage.getItem('TOKEN') && isFriends==true &&(<button className='w-[6rem] h-[2rem]' onClick={removeFriends}>Remove</button>)}

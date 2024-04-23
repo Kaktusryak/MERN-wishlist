@@ -30,20 +30,20 @@ const MyWish = ({wish}) => {
     }
 
   return (
-    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4'>
+    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4 overflow-hidden' >
         {isEdit && <EditWish title={wish.title} description={wish.description} link={wish.link} _id={wish._id}/>}
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center z-10 bg-white'>
             <p className='truncate w-[50%]'>{wish.title}</p>
-            <div className='flex flex-col'>
-              <button className='w-[3rem]' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
-                <button className='w-[3rem]' onClick={handleDelete} ><FaTrash /></button>
+            <div className='flex flex-col divide-y'>
+                <button className='w-[3rem] bg-inherit text-amber-500' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
+                <button className='w-[3rem] bg-inherit text-red-400' onClick={handleDelete} ><FaTrash /></button>
                 
-                <button className='w-[3rem]' onClick={()=>{setMore(!isMore)}} >{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
+                <button className='w-[3rem] bg-inherit' onClick={()=>{setMore(!isMore)}} >{isMore ? <FaChevronUp/>:<FaChevronDown/>}</button> 
             </div>
             
             
         </div>
-          {isMore && <div>
+          {isMore && <div className='in-down z-0'>
               <p className='text-wrap'>Title: {wish.title}</p>
               <p className='text-wrap'>Description: {wish.description}</p>
               <p className='text-wrap'>Link: {wish.link}</p>

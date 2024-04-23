@@ -13,6 +13,7 @@ import MyPage from '../src/pages/MyPage'
 import SignUp from '../src/pages/SignUp'
 import UserWishes from '../src/pages/UserWishes'
 import Navbar from '../src/components/Navbar'
+import Footer from './components/Footer'
 
 
 
@@ -47,8 +48,9 @@ function App() {
   
 
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col items-center justify-between '>
       <Navbar />
+      
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/findUser' element={<FindUser/>}/>
@@ -60,6 +62,9 @@ function App() {
         {/* wishes of a user */}
         
       </Routes>
+      
+      
+      
     </div>
   )
 }

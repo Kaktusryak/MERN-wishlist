@@ -17,9 +17,9 @@ const Navbar = () => {
   
 
   return (
-    <div key={token} className='flex items-center justify-between w-[100%] py-1  border-b-2 border-slate-400 	my-2 mb-6'>
+    <div key={token} className='flex items-center justify-between w-[100%] py-1 h-[8vh] border-b-2 border-slate-400 pt-[1vh]'>
       
-      <GoGift className=' text-xl w-[50px]' />
+      <GoGift className=' text-xl w-[70px]' />
       <div className='flex'>
         <Link to='/' className='mx-2'>Home</Link>
         <Link to='/findUser' className='mx-2'>Find friends</Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
         {token && <Link to='/friends' className='mx-2'>Friends</Link>}
       </div>
       <div >
-        {token ? (<Link className='w-[50px]' to='/myPage'><FaRegUser /></Link>):(<Link className='w-[50px]' to='/login'><FaRegUser /></Link>)}
+        {token ? (<Link className='w-[70px] bg-inherit' to='/myPage'><div className='flex flex-col justify-center items-center'><FaRegUser className='text-green-600 	' /><p className='text-xs'>Profile</p></div></Link>):(<Link className='w-[70px] ' to='/login'><div className='flex flex-col justify-center items-center'><FaRegUser className='text-sky-600 	' /><p className='text-xs'>Log-In</p></div></Link>)}
         
       </div>
       
