@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from 'axios'
@@ -14,13 +14,15 @@ import SignUp from '../src/pages/SignUp'
 import UserWishes from '../src/pages/UserWishes'
 import Navbar from '../src/components/Navbar'
 import Footer from './components/Footer'
+import { ThemeContext } from './constext/ThemeContext'
 
 
 
 
 function App() {
   const [count, setCount] = useState(0)
-
+  
+  
   axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
 
   const navigate = useNavigate()
@@ -34,6 +36,10 @@ function App() {
 
   }
 
+  const {darkTheme} = useContext(ThemeContext)
+  
+ 
+
   // useEffect(()=>{
   //   axios.get('http://localhost:4040/user/isActual').then(res=>{
 
@@ -44,27 +50,30 @@ function App() {
   //   )
   // },[])
 
-
   
 
   return (
-    <div className='w-full flex flex-col items-center justify-between '>
-      <Navbar />
-      
-      <Routes>
-        <Route path='/' element={<MainPage/>}/>
-        <Route path='/findUser' element={<FindUser/>}/>
-        <Route path='/friends' element={<Friends/>}/>
-        <Route path='/login' element={<LogIn/>}/>
-        <Route path='/myPage' element={<MyPage/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/wishes/:userId' element={<UserWishes/>}/>
-        {/* wishes of a user */}
-        
-      </Routes>
-      
-      
-      
+    <div className={`flex justify-center ${darkTheme} `}> 
+
+
+      <div className={`w-[900px] flex flex-col items-center justify-between `}>
+        <Navbar />
+
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/findUser' element={<FindUser />} />
+          <Route path='/friends' element={<Friends />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/myPage' element={<MyPage />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/wishes/:userId' element={<UserWishes />} />
+          {/* wishes of a user */}
+
+        </Routes>
+
+
+
+      </div>
     </div>
   )
 }

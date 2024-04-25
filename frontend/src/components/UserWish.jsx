@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
@@ -6,11 +6,12 @@ import { RiExternalLinkFill } from "react-icons/ri";
 
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ThemeContext } from '../constext/ThemeContext';
 
 
 const UserWish = ({wish}) => {
     const [isMore,setMore] = useState(false)
-    
+    const {darkTheme} = useContext(ThemeContext)
 
  
 
@@ -19,7 +20,7 @@ const UserWish = ({wish}) => {
   return (
     <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4 overflow-hidden'>
         
-        <div className='flex justify-between items-center z-10 bg-white'>
+        <div className={`flex justify-between items-center z-10 bg-white ${darkTheme}`}>
             <p className='truncate w-[50%]'>{wish.title}</p>
             <div>
                 

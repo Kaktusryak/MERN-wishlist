@@ -12,11 +12,12 @@ html{
   display: flex;
   justify-content: center;
   
+  
 }
 body{
     min-height: 100vh;
     min-width: 600px;
-    width: 900px;
+    width: 100%;
     background-color: rgb(255, 255, 255);
     height:fit-content;
     overflow-x: hidden;
@@ -97,12 +98,17 @@ input{
 }
 textarea{
   color: rgb(104, 104, 104);
+  border: none;
+}
+textarea:hover{
+  border: 1px solid black;
+  color: black;
 }
   
   
 
 input:hover{
-  background-color: rgb(216, 216, 216);
+  
   border: 1px solid black;
   color: black;
 }
@@ -160,4 +166,32 @@ input:active{
 .in-down {
   animation: inDown 0.5s ease-in-out;
 }
+
+
+.dark{
+  background-color:#212A31;
+  color: #d3d9d4;
+}
+.dark  a{
+  background-color: #124e66;
+  color: #d3d9d4;
+}
+.dark *{
+  
+  color: #d3d9d4;
+}
+.dark button{
+  background-color: #124e66;
+  color: #d3d9d4;
+}
+
+.dark input:hover{
+  color: #d3d9d4;
+  border: 1px solid #d3d9d4;
+}
+.dark textarea:hover{
+  color: #d3d9d4;
+  border: 1px solid #d3d9d4;
+}
+
 

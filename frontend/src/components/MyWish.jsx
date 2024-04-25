@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import EditWish from '../components/EditWish'
 import axios from 'axios'
@@ -9,13 +9,14 @@ import { BsGearFill } from "react-icons/bs";
 import { FaTrash } from "react-icons/fa6";
 import { BsGear } from "react-icons/bs";
 import { RiExternalLinkFill } from "react-icons/ri";
+import { ThemeContext } from '../constext/ThemeContext'
 
 
 const MyWish = ({wish}) => {
     const [isMore,setMore] = useState(false)
     const [isEdit,setEdit] = useState(false)
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("TOKEN")}`;
-
+    const {darkTheme} = useContext(ThemeContext)
   const navigate = useNavigate()
 
     const handleDelete = (e)=>{
@@ -30,9 +31,9 @@ const MyWish = ({wish}) => {
     }
 
   return (
-    <li className='flex flex-col justify-between py-2 my-2  w-[500px] px-4 overflow-hidden' >
+    <li className={`flex flex-col justify-between py-2 my-2  w-[500px] px-4 overflow-hidden ${darkTheme}`} >
         {isEdit && <EditWish title={wish.title} description={wish.description} link={wish.link} _id={wish._id}/>}
-        <div className='flex justify-between items-center z-10 bg-white'>
+        <div className={`flex justify-between items-center z-10 bg-white ${darkTheme}`}>
             <p className='truncate w-[50%]'>{wish.title}</p>
             <div className='flex flex-col divide-y'>
                 <button className='w-[3rem] bg-inherit text-amber-500' onClick={()=>{setEdit(!isEdit)}} >{isEdit ? <BsGear />:<BsGearFill />}</button>
